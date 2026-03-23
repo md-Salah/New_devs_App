@@ -30,7 +30,10 @@ calculate_monthly_revenue("prop-001", "tenant-a", 3, 2024, db_session)
 should return Decimal("1000.000") when the database session reports that
 total for the given property / tenant / month window.
 
-These tests FAIL until the placeholder return is replaced with a real query.
+These tests originally FAILED because the query was a stub.
+tenant_id was added to every call site after Bug 5 was fixed
+(the function signature was updated to require it).
+Tests still pass and continue to cover Bug 3 behaviour.
 """
 
 import pytest
@@ -66,6 +69,7 @@ async def test_monthly_revenue_returns_db_total_not_zero():
 
     result = await calculate_monthly_revenue(
         property_id="prop-001",
+        tenant_id="tenant-a",  # required after Bug 5 fix — prevents cross-tenant aggregation
         month=3,
         year=2024,
         db_session=mock_session,
@@ -98,6 +102,7 @@ async def test_monthly_revenue_is_not_always_zero():
 
     result = await calculate_monthly_revenue(
         property_id="prop-002",
+        tenant_id="tenant-a",  # required after Bug 5 fix — prevents cross-tenant aggregation
         month=3,
         year=2024,
         db_session=mock_session,
@@ -132,6 +137,7 @@ async def test_monthly_revenue_respects_month_boundaries():
 
     await calculate_monthly_revenue(
         property_id="prop-004",
+        tenant_id="tenant-b",  # required after Bug 5 fix — prevents cross-tenant aggregation
         month=3,
         year=2024,
         db_session=mock_session,

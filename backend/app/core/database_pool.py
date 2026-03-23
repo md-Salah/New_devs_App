@@ -12,7 +12,9 @@ class DatabasePool:
         self.session_factory = None
         
     async def initialize(self):
-        """Initialize database connection pool"""
+        """Initialize database connection pool. No-op if already initialized."""
+        if self.session_factory is not None:
+            return
         try:
             # Create async engine with connection pooling
             database_url = f"postgresql+asyncpg://{settings.supabase_db_user}:{settings.supabase_db_password}@{settings.supabase_db_host}:{settings.supabase_db_port}/{settings.supabase_db_name}"

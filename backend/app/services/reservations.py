@@ -1,18 +1,45 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import Dict, Any, List
+import pytz
 
-async def calculate_monthly_revenue(property_id: str, month: int, year: int, db_session=None) -> Decimal:
+async def calculate_monthly_revenue(
+    property_id: str,
+    tenant_id: str,
+    month: int,
+    year: int,
+    property_timezone: str = 'UTC',
+    db_session=None,
+) -> Decimal:
     """
     Calculates revenue for a specific month.
 
-    Filters reservations by check_in_date falling within [start_date, end_date)
-    using UTC timestamps, which matches how dates are stored in the DB.
+    Date boundaries are built in the property's local timezone and then
+    converted to UTC so that a reservation like res-tz-1
+    (2024-02-29 23:30 UTC = 2024-03-01 00:30 Europe/Paris) is counted in
+    the month the guest actually experienced, not the UTC month.
+
+    tenant_id is required to prevent cross-tenant aggregation when two
+    tenants share the same property_id string (e.g. both own 'prop-001').
     """
     from sqlalchemy import text
 
-    start_date = datetime(year, month, 1)
-    end_date = datetime(year, month + 1, 1) if month < 12 else datetime(year + 1, 1, 1)
+    try:
+        tz = pytz.timezone(property_timezone)
+    except pytz.exceptions.UnknownTimeZoneError:
+        tz = pytz.utc
+
+    local_start = tz.localize(datetime(year, month, 1))
+    local_end = (
+        tz.localize(datetime(year, month + 1, 1))
+        if month < 12
+        else tz.localize(datetime(year + 1, 1, 1))
+    )
+
+    # Convert to UTC — the column is TIMESTAMP WITH TIME ZONE so PostgreSQL
+    # will compare correctly against these offset-aware values.
+    start_date = local_start.astimezone(pytz.utc)
+    end_date = local_end.astimezone(pytz.utc)
 
     if db_session is None:
         return Decimal('0')
@@ -21,12 +48,14 @@ async def calculate_monthly_revenue(property_id: str, month: int, year: int, db_
         SELECT SUM(total_amount) as total
         FROM reservations
         WHERE property_id = :property_id
+        AND tenant_id = :tenant_id
         AND check_in_date >= :start_date
         AND check_in_date < :end_date
     """)
 
     result = await db_session.execute(query, {
         "property_id": property_id,
+        "tenant_id": tenant_id,
         "start_date": start_date,
         "end_date": end_date,
     })
@@ -38,11 +67,8 @@ async def calculate_total_revenue(property_id: str, tenant_id: str) -> Dict[str,
     Aggregates revenue from database.
     """
     try:
-        # Import database pool
-        from app.core.database_pool import DatabasePool
-        
-        # Initialize pool if needed
-        db_pool = DatabasePool()
+        # Reuse the module-level global pool — never create a new one per call.
+        from app.core.database_pool import db_pool
         await db_pool.initialize()
         
         if db_pool.session_factory:

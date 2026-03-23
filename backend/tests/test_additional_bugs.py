@@ -51,7 +51,7 @@ async def test_monthly_revenue_uses_timezone_aware_boundaries():
     mock_session = AsyncMock()
     mock_session.execute = capture_execute
 
-    await calculate_monthly_revenue("prop-001", 3, 2024, db_session=mock_session)
+    await calculate_monthly_revenue("prop-001", "tenant-a", 3, 2024, db_session=mock_session)
 
     start_date = captured.get("start_date")
     assert start_date is not None, "start_date was never passed to the query"
@@ -107,8 +107,7 @@ async def test_monthly_revenue_filters_by_tenant_id():
     # This call itself raises TypeError with the current signature — that is
     # the failing assertion: the function does not accept tenant_id at all.
     await calculate_monthly_revenue(
-        "prop-001", 3, 2024,
-        tenant_id="tenant-a",        # <-- required param that does not exist yet
+        "prop-001", "tenant-a", 3, 2024,
         db_session=mock_session,
     )
 
