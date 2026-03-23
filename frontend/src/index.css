@@ -1,0 +1,419 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables for layout heights */
+:root {
+  --header-height: 4rem; /* 64px on mobile */
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-height: 3.5rem; /* 56px on desktop */
+  }
+}
+
+/* Prevent horizontal scrolling globally */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Prevent layout shift when scrollbar appears/disappears */
+html {
+  scrollbar-gutter: stable;
+  overflow-y: scroll !important; /* Force scrollbar to always show */
+}
+
+body {
+  overflow-y: auto;
+}
+
+/* Ensure all containers respect viewport width */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* High-quality image rendering for avatars */
+.avatar-image {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Hide scrollbar for overlay elements */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Desktop table scrollbars - always visible for testing */
+.desktop-table-container {
+  /* Force scrollbars to always be visible for debugging */
+  overflow: auto !important;
+  scrollbar-width: auto !important; /* Firefox */
+  scrollbar-color: #64748b #e2e8f0 !important;
+}
+
+.desktop-table-container::-webkit-scrollbar {
+  width: 14px !important; /* Chrome, Safari, Edge */
+  height: 14px !important;
+  display: block !important;
+}
+
+.desktop-table-container::-webkit-scrollbar-track {
+  background: #e2e8f0 !important;
+  border-radius: 7px !important;
+  margin: 2px !important;
+}
+
+.desktop-table-container::-webkit-scrollbar-thumb {
+  background: #64748b !important;
+  border-radius: 7px !important;
+  border: 2px solid #e2e8f0 !important;
+}
+
+.desktop-table-container::-webkit-scrollbar-thumb:hover {
+  background: #475569 !important;
+}
+
+.desktop-table-container::-webkit-scrollbar-corner {
+  background: #e2e8f0 !important;
+}
+
+/* TimeAway calendar specific scrollbar */
+.timeaway-scrollbar {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #cbd5e1 #f1f5f9; /* thumb track - Firefox */
+}
+
+.timeaway-scrollbar::-webkit-scrollbar {
+  height: 8px; /* horizontal scrollbar height */
+  width: 8px; /* vertical scrollbar width if any */
+}
+
+.timeaway-scrollbar::-webkit-scrollbar-track {
+  background: #f1f5f9; /* lighter grey track */
+  border-radius: 6px;
+}
+
+.timeaway-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1; /* brighter grey thumb */
+  border-radius: 6px;
+  border: 2px solid #f1f5f9; /* give the thumb a small bezel */
+}
+
+.timeaway-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #a8b3bf;
+}
+
+.show-scrollbar {
+  overflow: auto !important;
+  scrollbar-width: auto !important; /* Firefox */
+  scrollbar-color: #64748b #e2e8f0 !important;
+  /* Force non-overlay scrollbars on macOS */
+  scrollbar-gutter: stable !important;
+}
+
+.show-scrollbar::-webkit-scrollbar {
+  width: 14px !important; /* Chrome, Safari, Edge */
+  height: 14px !important;
+  display: block !important;
+  -webkit-appearance: none !important; /* Disable macOS overlay behavior */
+}
+
+.show-scrollbar::-webkit-scrollbar-track {
+  background: #e2e8f0 !important;
+  border-radius: 7px !important;
+  margin: 2px !important;
+}
+
+.show-scrollbar::-webkit-scrollbar-thumb {
+  background: #64748b !important;
+  border-radius: 7px !important;
+  border: 2px solid #e2e8f0 !important;
+}
+
+.show-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #475569 !important;
+}
+
+.show-scrollbar::-webkit-scrollbar-corner {
+  background: #e2e8f0 !important;
+}
+
+.sidebar-scroll {
+  overflow-y: auto !important;
+  scrollbar-width: auto !important; /* Firefox */
+  scrollbar-color: #cbd5e1 #f1f5f9 !important;
+  /* Force non-overlay scrollbars on macOS */
+  scrollbar-gutter: stable !important;
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+  width: 8px !important;
+  display: block !important;
+  -webkit-appearance: none !important; /* Disable macOS overlay behavior */
+}
+
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: #f1f5f9 !important;
+  border-radius: 4px !important;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: #cbd5e1 !important;
+  border-radius: 4px !important;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8 !important;
+}
+
+/* Custom z-index utilities for proper layering */
+@layer utilities {
+  .z-sidebar {
+    z-index: 100;
+  }
+  .z-sidebar-mobile {
+    z-index: 110;
+  }
+  .z-sidebar-overlay {
+    z-index: 90;
+  }
+  .z-sidebar-tooltip {
+    z-index: 120;
+  }
+  .z-modal {
+    z-index: 150;
+  }
+  .z-dropdown {
+    z-index: 200;
+  }
+  .z-calendar {
+    z-index: 300;
+  }
+  .z-tooltip {
+    z-index: 250;
+  }
+}
+
+/* Ensure main content never goes behind sidebar */
+.main-content {
+  position: relative;
+  z-index: 10;
+}
+
+/* Custom scrollbar styling for dropdowns */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #e5e7eb #f9fafb;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f9fafb;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Sticky sections should respect z-index hierarchy */
+.sticky-section {
+  position: sticky;
+  z-index: 50;
+}
+
+/* Prevent content from going behind fixed elements */
+.content-safe-area {
+  position: relative;
+  z-index: 10;
+}
+
+.required:after {
+  content: " *";
+  color: #f43f5e;
+}
+
+.no-spinner::-webkit-inner-spin-button,
+.no-spinner::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.no-spinner {
+  -moz-appearance: textfield;
+}
+
+/* Calendar animations */
+@layer utilities {
+  .animate-in {
+    animation: fadeInScale 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.2s ease-out forwards;
+  }
+
+  .slide-left {
+    animation: slideLeft 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .slide-right {
+    animation: slideRight 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .calendar-bounce {
+    animation: calendarBounce 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+      forwards;
+  }
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px) rotateX(-10deg);
+  }
+  50% {
+    transform: scale(1.02) translateY(-5px) rotateX(-2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0) rotateX(0deg);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-15px) rotateY(-5deg);
+    opacity: 0.8;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(15px) rotateY(5deg);
+    opacity: 0.8;
+  }
+}
+
+@keyframes calendarBounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Sidebar animations for smooth module transitions */
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* Sidebar loading skeleton */
+.sidebar-skeleton {
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.has-away-start::after {
+  content: attr(data-emoji) " " attr(data-typename);
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+}
+
+.has-single-day::after {
+  content: attr(data-emoji);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  z-index: 10;
+}
+
+.has-away-start {
+  --day-width: calc(attr(data-visible-span-days number) * 10px);
+  min-width: var(--day-width);
+  max-width: var(--day-width);
+}

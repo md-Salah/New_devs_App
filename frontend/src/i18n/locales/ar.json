@@ -1,0 +1,162 @@
+{
+  "cleanerPortal": {
+    "title": "بوابة التنظيف",
+    "welcome": "مرحباً، {{name}}",
+    "todayAssignments": "هذه مهام التنظيف الخاصة بك لليوم",
+    "login": {
+      "title": "الرجاء إدخال بيانات الاعتماد للوصول إلى مهام التنظيف الخاصة بك",
+      "name": "اسمك",
+      "password": "كلمة المرور",
+      "signIn": "تسجيل الدخول",
+      "invalidPassword": "كلمة المرور غير صحيحة. حاول مرة أخرى."
+    },
+    "noCleanings": {
+      "title": "لا توجد مهام تنظيف",
+      "description": "ليس لديك مهام تنظيف لليوم."
+    },
+    "cleaning": {
+      "status": {
+        "pending": "قيد الانتظار",
+        "not_required": "غير مطلوب",
+        "stuck": "متوقف",
+        "in_progress": "قيد التنفيذ",
+        "complaint": "شكوى",
+        "completed": "مكتمل"
+      },
+      "details": {
+        "checkoutTime": "وقت المغادرة",
+        "keyCollection": "جمع المفاتيح",
+        "bedsToMake": "الأسرّة للترتيب",
+        "towelSets": "مجموعات المناشف",
+        "notSpecified": "غير محدد"
+      },
+      "actions": {
+        "startCleaning": "بدء التنظيف",
+        "markComplete": "تحديد كمكتمل",
+        "logout": "تسجيل الخروج",
+        "saveAndExit": "حفظ وخروج"
+      }
+    },
+    "steps": {
+      "title": "خطوات التنظيف",
+      "back": "العودة إلى التنظيف",
+      "sections": {
+        "damage": {
+          "title": "تقييم الأضرار",
+          "items": {
+            "walls": "هل هناك أضرار مرئية في الجدران أو الأثاث؟"
+          }
+        },
+        "leakage": {
+          "title": "تسرب المياه",
+          "items": {
+            "signs": "هل هناك علامات تسرب مياه أو بقع على الجدران أو السقف؟"
+          }
+        },
+        "missingItems": {
+          "title": "العناصر المفقودة",
+          "header": "يرجى التحقق مما إذا كانت أي من العناصر التالية مفقودة:",
+          "items": {
+            "hairDryer": "مجفف الشعر",
+            "dishes": "الأطباق",
+            "cutlery": "أدوات المائدة",
+            "tv": "التلفاز",
+            "vacuum": "المكنسة الكهربائية",
+            "mop": "الممسحة",
+            "airMattress": "فراش هوائي (1 فوق خزانة الملابس)"
+          }
+        },
+        "bedding": {
+          "title": "الفراش والمفروشات",
+          "items": {
+            "stains": "هل هناك بقع أو أضرار على الفراش أو المراتب أو الوسائد أو اللحف؟"
+          }
+        },
+        "tv": {
+          "title": "فحص التلفاز",
+          "items": {
+            "working": "هل يعمل التلفاز بشكل صحيح؟"
+          }
+        },
+        "hotWater": {
+          "title": "فحص الماء الساخن",
+          "items": {
+            "working": "هل الماء الساخن يعمل؟"
+          }
+        },
+        "communal": {
+          "title": "المنطقة المشتركة / الخارجية",
+          "items": {
+            "frontClean": "هل واجهة العقار نظيفة وخالية من النفايات؟",
+            "entranceClean": "هل الممر والمدخل المشترك نظيف؟"
+          }
+        },
+        "keys": {
+          "title": "إعادة المفاتيح",
+          "items": {
+            "guestKey": "تم إرجاع مفتاح الضيف",
+            "cleanerKey": "تم إرجاع مفتاح المنظف"
+          }
+        }
+      },
+      "answers": {
+        "yes": "نعم",
+        "no": "لا",
+        "present": "موجود",
+        "missing": "مفقود"
+      },
+      "completeItems": "يرجى إكمال جميع العناصر في هذا القسم",
+      "photos": {
+        "add": "إضافة صورة",
+        "view": "عرض الصورة",
+        "download": "تحميل",
+        "invalidType": "الرجاء تحميل ملف صورة (JPG, PNG, الخ)",
+        "sizeLimit": "يجب أن يكون حجم الصورة أقل من 10 ميجابايت"
+      }
+    }
+  },
+  "guestPortal": {
+    "upsells": {
+      "popular": "شائع",
+      "free": "مجاني",
+      "perItem": "لكل عنصر",
+      "oneTimeFee": "رسوم لمرة واحدة",
+      "addToStay": "إضافة للإقامة",
+      "categories": {
+        "convenience": "راحة",
+        "upgradeStay": "تحسين الإقامة",
+        "transportation": "نقل",
+        "comfort": "راحة ورعاية",
+        "dining": "طعام",
+        "wellness": "صحة",
+        "services": "خدمات",
+        "experiences": "تجارب",
+        "addOns": "إضافات",
+        "service": "خدمة"
+      },
+      "detail": {
+        "title": "تفاصيل الخدمة",
+        "subtitle": "تعرف أكثر على هذه الخدمة",
+        "aboutService": "حول هذه الخدمة",
+        "showLess": "عرض أقل",
+        "readMore": "قراءة المزيد",
+        "serviceInformation": "معلومات الخدمة",
+        "notesRequired": "ملاحظات مطلوبة",
+        "noNotesNeeded": "لا حاجة لملاحظات إضافية",
+        "additionalDetailsNeeded": "ستحتاج لتقديم تفاصيل إضافية",
+        "readyToAdd": "جاهز للإضافة لإقامتك",
+        "schedulingRequired": "جدولة مطلوبة",
+        "noScheduling": "لا حاجة لجدولة",
+        "dateTimeNeeded": "اختر التاريخ والوقت عند الحجز",
+        "availableAnytime": "متاح في أي وقت خلال إقامتك",
+        "approvalRequired": "موافقة مطلوبة",
+        "instantConfirmation": "تأكيد فوري",
+        "reviewWithinHours": "سنراجع طلبك خلال 24 ساعة",
+        "confirmedImmediately": "تأكيد فوري عند الحجز",
+        "noApprovalNeeded": "لا تحتاج موافقة - معلومات فقط",
+        "requestForApproval": "طلب للموافقة",
+        "noPaymentNow": "لا يتطلب دفع الآن"
+      }
+    }
+  }
+}

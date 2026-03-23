@@ -1,0 +1,162 @@
+{
+  "cleanerPortal": {
+    "title": "Cleaner Portal",
+    "welcome": "Welcome, {{name}}",
+    "todayAssignments": "Here are your cleaning assignments for today",
+    "login": {
+      "title": "Please enter your credentials to access your cleaning assignments",
+      "name": "Your Name",
+      "password": "Password",
+      "signIn": "Sign in",
+      "invalidPassword": "Invalid password. Please try again."
+    },
+    "noCleanings": {
+      "title": "No cleanings assigned",
+      "description": "You don't have any cleaning assignments for today."
+    },
+    "cleaning": {
+      "status": {
+        "pending": "Pending",
+        "not_required": "Not Required",
+        "stuck": "Stuck",
+        "in_progress": "In Progress",
+        "complaint": "Complaint",
+        "completed": "Completed"
+      },
+      "details": {
+        "checkoutTime": "Check Out Time",
+        "keyCollection": "Key Collection",
+        "bedsToMake": "Beds to Make",
+        "towelSets": "Towel Sets",
+        "notSpecified": "Not specified"
+      },
+      "actions": {
+        "startCleaning": "Start Cleaning",
+        "markComplete": "Mark as Complete",
+        "logout": "Logout",
+        "saveAndExit": "Save & Exit"
+      }
+    },
+    "steps": {
+      "title": "Cleaning Steps",
+      "back": "Back to Cleanings",
+      "sections": {
+        "damage": {
+          "title": "Damage Assessment",
+          "items": {
+            "walls": "Are there any visible damages to the walls or furniture?"
+          }
+        },
+        "leakage": {
+          "title": "Water Leakage",
+          "items": {
+            "signs": "Are there any signs of water leakage or stains on the walls or ceilings?"
+          }
+        },
+        "missingItems": {
+          "title": "Missing Items",
+          "header": "Please check if any of the following items are missing:",
+          "items": {
+            "hairDryer": "Hair dryer",
+            "dishes": "Dishes",
+            "cutlery": "Cutlery",
+            "tv": "TV",
+            "vacuum": "Vacuum cleaner",
+            "mop": "Mop",
+            "airMattress": "Air mattress (1 on top of the wardrobe)"
+          }
+        },
+        "bedding": {
+          "title": "Bedding and Upholstery",
+          "items": {
+            "stains": "Are there any stains or damage on the bedding, mattresses, cushions, or duvets?"
+          }
+        },
+        "tv": {
+          "title": "TV Check",
+          "items": {
+            "working": "Is the TV functioning properly?"
+          }
+        },
+        "hotWater": {
+          "title": "Hot Water Check",
+          "items": {
+            "working": "Is the hot water working?"
+          }
+        },
+        "communal": {
+          "title": "Communal / Outdoor Area",
+          "items": {
+            "frontClean": "Is the front of the property clean and rubbish free?",
+            "entranceClean": "Is the hallway and communal entrance clean?"
+          }
+        },
+        "keys": {
+          "title": "Keys Return",
+          "items": {
+            "guestKey": "Guest Key Returned",
+            "cleanerKey": "Cleaner Key Returned"
+          }
+        }
+      },
+      "answers": {
+        "yes": "Yes",
+        "no": "No",
+        "present": "Present",
+        "missing": "Missing"
+      },
+      "completeItems": "Please complete all items in this section",
+      "photos": {
+        "add": "Add Photo",
+        "view": "View Photo",
+        "download": "Download",
+        "invalidType": "Please upload an image file (JPG, PNG, etc)",
+        "sizeLimit": "Image size must be less than 10MB"
+      }
+    }
+  },
+  "guestPortal": {
+    "upsells": {
+      "popular": "Popular",
+      "free": "Free",
+      "perItem": "per item",
+      "oneTimeFee": "one-time fee",
+      "addToStay": "Add to Stay",
+      "categories": {
+        "convenience": "Convenience",
+        "upgradeStay": "Stay Upgrades",
+        "transportation": "Transportation",
+        "comfort": "Comfort & Care",
+        "dining": "Dining",
+        "wellness": "Wellness",
+        "services": "Services",
+        "experiences": "Experiences",
+        "addOns": "Add-ons",
+        "service": "Service"
+      },
+      "detail": {
+        "title": "Service Details",
+        "subtitle": "Learn more about this service",
+        "aboutService": "About This Service",
+        "showLess": "Show Less",
+        "readMore": "Read More",
+        "serviceInformation": "Service Information",
+        "notesRequired": "Notes Required",
+        "noNotesNeeded": "No Additional Notes Needed",
+        "additionalDetailsNeeded": "You'll need to provide additional details",
+        "readyToAdd": "Ready to add to your stay",
+        "schedulingRequired": "Scheduling Required",
+        "noScheduling": "No Scheduling Needed",
+        "dateTimeNeeded": "Select date and time when booking",
+        "availableAnytime": "Available anytime during your stay",
+        "approvalRequired": "Approval Required",
+        "instantConfirmation": "Instant Confirmation",
+        "reviewWithinHours": "We'll review your request within 24 hours",
+        "confirmedImmediately": "Confirmed immediately upon booking",
+        "noApprovalNeeded": "No approval needed - informational only",
+        "requestForApproval": "Request for approval",
+        "noPaymentNow": "No payment required now"
+      }
+    }
+  }
+}

@@ -1,0 +1,111 @@
+/* Responsive spacing optimizations for keys management */
+
+/* Custom breakpoint for extra small screens */
+@media (max-width: 480px) {
+  .xs\:hidden {
+    display: none;
+  }
+  
+  .xs\:inline {
+    display: inline;
+  }
+  
+  .xs\:block {
+    display: block;
+  }
+  
+  .xs\:flex {
+    display: flex;
+  }
+}
+
+/* Optimized spacing for mobile */
+@media (max-width: 640px) {
+  /* Reduce padding on mobile for better space utilization */
+  .mobile-compact {
+    padding: 0.5rem;
+  }
+  
+  .mobile-compact-sm {
+    padding: 0.25rem;
+  }
+  
+  /* Better mobile scrolling */
+  .mobile-scroll {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* Optimize card spacing on mobile */
+  .mobile-card-gap {
+    gap: 0.75rem;
+  }
+  
+  /* Compact headers on mobile */
+  .mobile-header {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+/* Medium screens optimization */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .tablet-optimize {
+    padding: 1rem;
+  }
+}
+
+/* Large screens - maximize content area */
+@media (min-width: 1025px) {
+  .desktop-optimize {
+    padding: 1.5rem;
+  }
+  
+  /* Show more cards per row on large screens */
+  .desktop-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+
+/* Viewport height optimization */
+.vh-optimize {
+  height: calc(100vh - var(--header-height, 280px));
+  min-height: 400px;
+}
+
+/* Custom scrollbar for better UX */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Focus styles for better accessibility */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+}
+
+/* Optimized animations for mobile performance */
+@media (prefers-reduced-motion: no-preference) {
+  .smooth-transition {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .smooth-transition {
+    transition: none;
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "cleanerPortal": {
+    "title": "Portail du Nettoyeur",
+    "welcome": "Bienvenue, {{name}}",
+    "todayAssignments": "Voici vos tâches de nettoyage pour aujourd'hui",
+    "login": {
+      "title": "Veuillez entrer vos identifiants pour accéder à vos tâches de nettoyage",
+      "name": "Votre Nom",
+      "password": "Mot de passe",
+      "signIn": "Se connecter",
+      "invalidPassword": "Mot de passe invalide. Veuillez réessayer."
+    },
+    "noCleanings": {
+      "title": "Aucun nettoyage assigné",
+      "description": "Vous n'avez pas de tâches de nettoyage pour aujourd'hui."
+    },
+    "cleaning": {
+      "status": {
+        "pending": "En attente",
+        "not_required": "Non requis",
+        "stuck": "Bloqué",
+        "in_progress": "En cours",
+        "complaint": "Plainte",
+        "completed": "Terminé"
+      },
+      "details": {
+        "checkoutTime": "Heure de départ",
+        "keyCollection": "Collecte des clés",
+        "bedsToMake": "Lits à faire",
+        "towelSets": "Ensembles de serviettes",
+        "notSpecified": "Non spécifié"
+      },
+      "actions": {
+        "startCleaning": "Commencer le nettoyage",
+        "markComplete": "Marquer comme terminé",
+        "logout": "Déconnexion",
+        "saveAndExit": "Sauvegarder et quitter"
+      }
+    },
+    "steps": {
+      "title": "Étapes de nettoyage",
+      "back": "Retour aux nettoyages",
+      "sections": {
+        "damage": {
+          "title": "Évaluation des dommages",
+          "items": {
+            "walls": "Y a-t-il des dommages visibles aux murs ou aux meubles?"
+          }
+        },
+        "leakage": {
+          "title": "Fuites d'eau",
+          "items": {
+            "signs": "Y a-t-il des signes de fuite d'eau ou des taches sur les murs ou les plafonds?"
+          }
+        },
+        "missingItems": {
+          "title": "Articles manquants",
+          "header": "Veuillez vérifier si l'un des articles suivants est manquant:",
+          "items": {
+            "hairDryer": "Sèche-cheveux",
+            "dishes": "Vaisselle",
+            "cutlery": "Couverts",
+            "tv": "Télévision",
+            "vacuum": "Aspirateur",
+            "mop": "Balai",
+            "airMattress": "Matelas gonflable (1 sur l'armoire)"
+          }
+        },
+        "bedding": {
+          "title": "Literie et tissus d'ameublement",
+          "items": {
+            "stains": "Y a-t-il des taches ou des dommages sur la literie, les matelas, les coussins ou les couettes?"
+          }
+        },
+        "tv": {
+          "title": "Vérification de la TV",
+          "items": {
+            "working": "La télévision fonctionne-t-elle correctement?"
+          }
+        },
+        "hotWater": {
+          "title": "Vérification de l'eau chaude",
+          "items": {
+            "working": "L'eau chaude fonctionne-t-elle?"
+          }
+        },
+        "communal": {
+          "title": "Espaces communs / Extérieurs",
+          "items": {
+            "frontClean": "L'avant de la propriété est-il propre et sans déchets?",
+            "entranceClean": "Le couloir et l'entrée commune sont-ils propres?"
+          }
+        },
+        "keys": {
+          "title": "Retour des clés",
+          "items": {
+            "guestKey": "Clé invité retournée",
+            "cleanerKey": "Clé du nettoyeur retournée"
+          }
+        }
+      },
+      "answers": {
+        "yes": "Oui",
+        "no": "Non",
+        "present": "Présent",
+        "missing": "Manquant"
+      },
+      "completeItems": "Veuillez compléter tous les éléments de cette section",
+      "photos": {
+        "add": "Ajouter une photo",
+        "view": "Voir la photo",
+        "download": "Télécharger",
+        "invalidType": "Veuillez télécharger un fichier image (JPG, PNG, etc)",
+        "sizeLimit": "La taille de l'image doit être inférieure à 10 Mo"
+      }
+    }
+  },
+  "guestPortal": {
+    "upsells": {
+      "popular": "Populaire",
+      "free": "Gratuit",
+      "perItem": "par article",
+      "oneTimeFee": "frais unique",
+      "addToStay": "Ajouter au Séjour",
+      "categories": {
+        "convenience": "Commodité",
+        "upgradeStay": "Amélioration du Séjour",
+        "transportation": "Transport",
+        "comfort": "Confort et Soins",
+        "dining": "Restauration",
+        "wellness": "Bien-être",
+        "services": "Services",
+        "experiences": "Expériences",
+        "addOns": "Suppléments",
+        "service": "Service"
+      },
+      "detail": {
+        "title": "Détails du Service",
+        "subtitle": "En savoir plus sur ce service",
+        "aboutService": "À Propos de ce Service",
+        "showLess": "Afficher Moins",
+        "readMore": "Lire Plus",
+        "serviceInformation": "Informations sur le Service",
+        "notesRequired": "Notes Requises",
+        "noNotesNeeded": "Aucune Note Supplémentaire Nécessaire",
+        "additionalDetailsNeeded": "Vous devrez fournir des détails supplémentaires",
+        "readyToAdd": "Prêt à ajouter à votre séjour",
+        "schedulingRequired": "Planification Requise",
+        "noScheduling": "Aucune Planification Nécessaire",
+        "dateTimeNeeded": "Choisir date et heure lors de la réservation",
+        "availableAnytime": "Disponible à tout moment pendant votre séjour",
+        "approvalRequired": "Approbation Requise",
+        "instantConfirmation": "Confirmation Instantanée",
+        "reviewWithinHours": "Nous examinerons votre demande dans les 24 heures",
+        "confirmedImmediately": "Confirmé immédiatement lors de la réservation",
+        "noApprovalNeeded": "Aucune approbation nécessaire - informatif seulement",
+        "requestForApproval": "Demande d'approbation",
+        "noPaymentNow": "Aucun paiement requis maintenant"
+      }
+    }
+  }
+}
